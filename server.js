@@ -6,6 +6,12 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 
+// --- HTTP endpoint for testing ---
+app.get("/", (req, res) => {
+  console.log("Frontend hit backend!");
+  res.send("Hello from backend! This message is logged in server console.");
+});
+
 const server = http.createServer(app);
 
 const io = new Server(server, {
